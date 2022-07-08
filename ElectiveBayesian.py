@@ -18,7 +18,7 @@ target = ['Approved']
 
 features_train, features_test, target_train, target_test = train_test_split(credit_card[features],
 credit_card[target], test_size = 0.30,
-   random_state = 40)
+   random_state = 20)
 
 # Displaying the split datasets
 print('\tTraining Features\n ',features_train)  #3 Print all of these
@@ -37,7 +37,7 @@ accuracy = accuracy_score(target_test, pred)
 
 print("\nModel Accuracy = ",accuracy*100,"%") 
 
-answer = model.predict([[0,0,8,1,50,35]]) 
+answer = model.predict([[35,0,8,1,50,35]]) 
 if answer == 1:
     print("\nApproved")
 elif answer == 0:
