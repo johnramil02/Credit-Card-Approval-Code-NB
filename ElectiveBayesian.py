@@ -5,6 +5,8 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 
+print("hi")
+
 credit_card = pd.read_csv("Clean_Dataset_Credit_ScoreNOT_FINAL.csv")
 print(credit_card)   
 
