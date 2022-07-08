@@ -7,7 +7,7 @@ from sklearn.metrics import accuracy_score
 
 print("hi")
 
-credit_card = pd.read_csv("Clean Dataset Credit Score[NOT FINAL].csv")
+credit_card = pd.read_csv("Final Dataset Credit Score.csv")
 print(credit_card)   
 
 number = LabelEncoder()
@@ -34,7 +34,12 @@ pred = model.predict(features_test)
 
 accuracy = accuracy_score(target_test, pred)
 
+print("OKAY")
+print(target_test)
+print("OKAY")
+print(pred)
 
+print("Normal Accuracy",accuracy)
 print("\nModel Accuracy = ",accuracy*100,"%") 
 
 answer = model.predict([[35,0,8,1,50,35]]) 
