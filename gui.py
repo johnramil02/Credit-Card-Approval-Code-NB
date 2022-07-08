@@ -26,3 +26,5 @@ e1 = Entry(root).place(x = 140,y = 230)
 f1 = Entry(root).place(x = 220,y = 320)
 
 root.mainloop()
+
+#okay okay 
