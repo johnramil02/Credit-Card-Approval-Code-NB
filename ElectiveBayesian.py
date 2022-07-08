@@ -7,7 +7,7 @@ from sklearn.metrics import accuracy_score
 
 print("hi")
 
-credit_card = pd.read_csv("Clean_Dataset_Credit_ScoreNOT_FINAL.csv")
+credit_card = pd.read_csv("Clean Dataset Credit Score[NOT FINAL].csv")
 print(credit_card)   
 
 number = LabelEncoder()
