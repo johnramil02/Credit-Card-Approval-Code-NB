@@ -46,12 +46,11 @@ print("\nModel Accuracy = ",accuracy*100,"%")
 #     print("\nNot Approved")
     
 def bayesianPrediction(attributes):
-    answer = model.predict(attributes) 
+    answer = model.predict(attributes)
     if answer == 1:
         print("True")
         return True
+    
     elif answer == 0:
         print("False")
         return False
-    
-
