@@ -5,9 +5,7 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 
-print("hi")
-
-credit_card = pd.read_csv("Final Dataset Credit Score.csv")
+credit_card = pd.read_csv("original dataset clean.csv")
 print(credit_card)   
 
 number = LabelEncoder()
@@ -34,18 +32,26 @@ pred = model.predict(features_test)
 
 accuracy = accuracy_score(target_test, pred)
 
-print("OKAY")
 print(target_test)
-print("OKAY")
+
 print(pred)
 
 print("Normal Accuracy",accuracy)
 print("\nModel Accuracy = ",accuracy*100,"%") 
 
-answer = model.predict([[35,0,8,1,50,35]]) 
-if answer == 1:
-    print("\nApproved")
-elif answer == 0:
-    print("\nNot Approved")
-
+# answer = model.predict([[10,0,1,1,2,35]]) 
+# if answer == 1:
+#     print("\nApproved")
+# elif answer == 0:
+#     print("\nNot Approved")
+    
+def bayesianPrediction(attributes):
+    answer = model.predict(attributes) 
+    if answer == 1:
+        print("True")
+        return True
+    elif answer == 0:
+        print("False")
+        return False
+    
 
