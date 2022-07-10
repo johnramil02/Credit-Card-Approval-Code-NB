@@ -3,7 +3,8 @@ import pandas as pd
 from sklearn.naive_bayes import GaussianNB
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score
+from sklearn.metrics import accuracy_score, classification_report
+from sklearn import metrics
 
 credit_card = pd.read_csv("original dataset clean.csv")
 print(credit_card)   
@@ -54,3 +55,6 @@ def bayesianPrediction(attributes):
     elif answer == 0:
         print("False")
         return False
+
+print(metrics.confusion_matrix(target_test, pred))
+print(metrics.classification_report(target_test, pred))
