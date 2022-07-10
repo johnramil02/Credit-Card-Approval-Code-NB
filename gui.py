@@ -11,19 +11,15 @@ root.resizable(False, False)
 root.title('Credit Card Approval')
 
 # Label and form input
-label_title         = Label(root ,text = "Credit Card Approval").place(x = 200,y = 20) #(row = 0,column = 0)
+label_title         = Label(root ,text = "Credit Card Approval", font=("Courier", 20), fg="#0000FF").place(x = 100,y = 25) #(row = 0,column = 0)
 label_debt          = Label(root ,text = "Debt").place(x = 40,y = 100) 
 label_bank          = Label(root ,text = "Already a Bank Customer?").place(x = 40,y = 130)
 label_employed      = Label(root ,text = "Employed").place(x = 40,y = 160)
 label_credit_score  = Label(root ,text = "Credit Score").place(x = 40,y = 200)
 label_income        = Label(root ,text = "Income").place(x = 40,y = 230)
 label_years         = Label(root ,text = "Years").place(x = 40,y = 260)
-label_result        = Label(root ,text = "Result").place(x = 180,y = 320)
+label_result        = Label(root ,text = "Result").place(x = 150,y = 350)
 
-# label title style config
-# label_title.config(font=("Courier", 44))
-# label_title.config(fg="#0000FF")
-# label_title.config(bg="yellow")
 
 # Text Variable for Entry Field
 debt_var            = tk.StringVar()
@@ -35,19 +31,19 @@ years_employed_var  = tk.StringVar()
 
 
 # Entry Field
-input_debt          = Entry(root, textvariable = debt_var).place(x = 140,y = 100)
-#input_bank          = Entry(root, textvariable = bank_var).place(x = 140,y = 130)
-#input_employed      = Entry(root, textvariable = employed_var).place(x = 140,y = 160)
-input_credit_score  = Entry(root, textvariable = credit_score_var).place(x = 140,y = 200)
-input_income        = Entry(root, textvariable = income_var).place(x = 140,y = 230)
-input_income        = Entry(root, textvariable = years_employed_var).place(x = 140,y = 260)
-input_result        = Entry(root).place(x = 220,y = 320)
+input_debt          = Entry(root, textvariable = debt_var).place(x = 200,y = 100)
+input_credit_score  = Entry(root, textvariable = credit_score_var).place(x = 200,y = 200)
+input_income        = Entry(root, textvariable = income_var).place(x = 200,y = 230)
+input_income        = Entry(root, textvariable = years_employed_var).place(x = 200,y = 260)
+input_result        = Entry(root).place(x = 200,y = 350)
 
 # Radio Button for Employed
 employed_radio = StringVar()
 employed_radio.set(' ')
+
 employed_radio_1 = Radiobutton(root, text = "Yes", variable = employed_radio,value = 1)
 employed_radio_1.place(x = 200,y = 160)
+
 employed_radio_2 = Radiobutton(root, text = "No", variable = employed_radio,value = 0)
 employed_radio_2.place(x = 250,y = 160)
 
@@ -85,7 +81,7 @@ def isApprove():
 
 
 # button for prediction
-ttk.Button(root,text = "Predict", command = isApprove).place(x = 250,y = 290)
+ttk.Button(root,text = "Predict", command = isApprove).place(x = 230,y = 300)
 
 root.mainloop()
 
