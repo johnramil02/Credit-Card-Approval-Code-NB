@@ -39,7 +39,6 @@ input_result        = Entry(root).place(x = 220,y = 320)
 
 
 def isApprove():
-    
     #Get input values from entry field
     debt            = int(debt_var.get())
     bank            = int(bank_var.get())
@@ -65,4 +64,3 @@ ttk.Button(root,text = "Predict", command = isApprove).place(x = 250,y = 290)
 
 root.mainloop()
 
-#okay okay 
