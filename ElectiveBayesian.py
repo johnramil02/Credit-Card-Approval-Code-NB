@@ -49,3 +49,4 @@ def bayesianPrediction(attributes):
     elif answer == 0:
         print("False")
         return False
+    

@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import *
 from tkinter import ttk
 from tkinter import messagebox
+import tkinter.font as font
 from ElectiveBayesian import *
 
 # root window
@@ -12,12 +13,12 @@ root.title('Credit Card Approval')
 
 # Label and form input
 label_title         = Label(root ,text = "Credit Card Approval", font=("Courier", 20), fg="#0000FF").place(x = 90,y = 25) #(row = 0,column = 0)
-label_debt          = Label(root ,text = "Debt").place(x = 40,y = 100) 
-label_bank          = Label(root ,text = "Already a Bank Customer?").place(x = 40,y = 130)
-label_employed      = Label(root ,text = "Employed?").place(x = 40,y = 160)
-label_credit_score  = Label(root ,text = "Credit Score").place(x = 40,y = 200)
-label_income        = Label(root ,text = "Monthly Income").place(x = 40,y = 230)
-label_years         = Label(root ,text = "Years of Employment :").place(x = 40,y = 260)
+label_debt          = Label(root ,text = "Debt", font=('Helvetica', 9, 'bold')).place(x = 40,y = 100) 
+label_bank          = Label(root ,text = "Already a Bank Customer?", font=('Helvetica', 9, 'bold')).place(x = 40,y = 130)
+label_employed      = Label(root ,text = "Employed?", font=('Helvetica', 9, 'bold')).place(x = 40,y = 160)
+label_credit_score  = Label(root ,text = "Credit Score", font=('Helvetica', 9, 'bold')).place(x = 40,y = 200)
+label_income        = Label(root ,text = "Monthly Income", font=('Helvetica', 9, 'bold')).place(x = 40,y = 230)
+label_years         = Label(root ,text = "Years of Employment :", font=('Helvetica', 9, 'bold')).place(x = 40,y = 260)
 #label_result        = Label(root ,text = "Result").place(x = 150,y = 350)
 
 
@@ -73,28 +74,30 @@ def is_approve():
    
     # Check if the input is valid
     is_all_numeric = debt.isnumeric() and credit_score.isnumeric() and income.isnumeric() and years_employed.isnumeric()
-    
-    if(is_all_numeric):
-        # Save get values into input variable
-        input = [[int(debt),int(bank),int(years_employed),int(employed),int(credit_score),int(income)]]
-        
-        # predict using naive bayes 
-        if(bayesianPrediction(input)):  
-            print("Credit Card Approved")
-            messagebox.showinfo("Approval", "Credit Card Approved")
-        else:
-            print("Credit Card Not Approved")
-            messagebox.showinfo("Approval", "Credit Card Not Approved")
+    is_empty = debt == "" or bank == "" or employed == "" or credit_score == "" or income == "" or years_employed == ""
+
+    if(is_empty):
+        messagebox.showwarning("Error", "Empty field must be filled out")
     else:
-        messagebox.showwarning("Invalid Input", "Input must be numerical")
+        if(is_all_numeric):
+            # Save get values into input variable
+            input = [[int(debt),int(bank),int(years_employed),int(employed),int(credit_score),int(income)]]
+            
+            # predict using naive bayes 
+            if(bayesianPrediction(input)):  
+                print("Credit Card Approved")
+                messagebox.showinfo("Approval", "Credit Card Approved")
+            else:
+                print("Credit Card Not Approved")
+                messagebox.showinfo("Approval", "Credit Card Not Approved")
+        else:
+            messagebox.showwarning("Invalid Input", "Input must be numerical")
+        
     
-    
-    
+# style of button
+s = ttk.Style()
+s.configure('my.TButton', font=('Helvetica', 12))
 
-
-# button for prediction
-ttk.Button(root,text = "Predict", command = is_approve).place(x = 230,y = 300)
-
+ttk.Button(root,text = "Predict", command = is_approve, style='my.TButton').place(x = 230,y = 300)
 
 root.mainloop()
-
