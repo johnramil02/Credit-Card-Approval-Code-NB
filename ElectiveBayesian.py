@@ -4,6 +4,7 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, classification_report
+from sklearn.metrics import accuracy_score, classification_report
 from sklearn import metrics
 
 credit_card = pd.read_csv("original dataset clean.csv")
@@ -39,6 +40,8 @@ print(pred)
 
 print("Normal Accuracy",accuracy)
 print("\nModel Accuracy = ",accuracy*100,"%") 
+print(metrics.confusion_matrix(target_test, pred))
+print(metrics.classification_report(target_test, pred))
 
 # Function for Naive Bayes model prediction 
 def bayesianPrediction(attributes):
