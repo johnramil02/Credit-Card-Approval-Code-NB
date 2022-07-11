@@ -50,10 +50,3 @@ def bayesianPrediction(attributes):
     elif answer == 0:
         print("False")
         return False
-<<<<<<< HEAD
-
-print(metrics.confusion_matrix(target_test, pred))
-print(metrics.classification_report(target_test, pred))
-=======
-    
->>>>>>> 07aaf9022f01754b58ca2595cc1b61cfdeaa52f5

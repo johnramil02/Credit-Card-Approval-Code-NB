@@ -59,7 +59,15 @@ bank_radio_1.place(x = 200,y = 130)
 bank_radio_2 = Radiobutton(root, text = "No", variable = bank_radio,value = 0)
 bank_radio_2.place(x = 250,y = 130)
 
+# check if the string is float or not
+def isfloat(num):
+    try:
+        float(num)
+        return True
+    except ValueError:
+        return False
 
+# Check if the applicant details is approved or not
 def is_approve():
     #Get input values from entry field
     debt            = debt_var.get()
@@ -71,9 +79,9 @@ def is_approve():
     
     print(str(debt) + " " + str(bank) + " " + str(employed) + " " + str(years_employed) + " " + str(credit_score) + " " + str(income))
     
-   
+    
     # Check if the input is valid
-    is_all_numeric = debt.isnumeric() and credit_score.isnumeric() and income.isnumeric() and years_employed.isnumeric()
+    is_all_numeric = (debt.isnumeric() or isfloat(debt)) and (credit_score.isnumeric() or isfloat(credit_score)) and (income.isnumeric() or isfloat(income)) and (years_employed.isnumeric() or isfloat(years_employed))
     is_empty = debt == "" or bank == "" or employed == "" or credit_score == "" or income == "" or years_employed == ""
 
     if(is_empty):
@@ -81,7 +89,7 @@ def is_approve():
     else:
         if(is_all_numeric):
             # Save get values into input variable
-            input = [[int(debt),int(bank),int(years_employed),int(employed),int(credit_score),int(income)]]
+            input = [[float(debt),float(bank),float(years_employed),float(employed),float(credit_score),float(income)]]
             
             # predict using naive bayes 
             if(bayesianPrediction(input)):  
@@ -93,7 +101,6 @@ def is_approve():
         else:
             messagebox.showwarning("Invalid Input", "Input must be numerical")
         
-    
 # style of button
 s = ttk.Style()
 s.configure('my.TButton', font=('Helvetica', 12))
