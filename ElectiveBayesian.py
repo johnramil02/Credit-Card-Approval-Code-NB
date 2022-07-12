@@ -8,7 +8,7 @@ from sklearn.metrics import accuracy_score, classification_report
 from sklearn.metrics import accuracy_score, classification_report
 from sklearn import metrics
 
-credit_card = pd.read_csv("Clean Dataset Credit Score[NOT FINAL].csv")
+credit_card = pd.read_csv("original dataset clean.csv")
 print(credit_card)   
 
 number = LabelEncoder()
@@ -38,9 +38,6 @@ accuracy = accuracy_score(target_test, pred)
 print(type(target_test))
 
 
-df = pd.DataFrame(pred, columns = ['Approved'])
-print(df)
-
 # Put into CSV file
 import csv
 
@@ -69,9 +66,7 @@ print("\nModel Accuracy = ",accuracy*100,"%")
 print(metrics.confusion_matrix(target_test, pred))
 print(metrics.classification_report(target_test, pred))
 
-df2 = features_test.join(df)
 
-df2.to_csv(r'predicted2.csv', index=True)
 
 # Function for Naive Bayes model prediction 
 def bayesianPrediction(attributes):
