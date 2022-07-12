@@ -8,12 +8,15 @@ from sklearn.metrics import accuracy_score, classification_report
 from sklearn.metrics import accuracy_score, classification_report
 from sklearn import metrics
 
-credit_card = pd.read_csv("original dataset clean.csv")
+credit_card = pd.read_csv("dataset with Age.csv")
+#credit_card = pd.read_csv("complete dataset.csv")
+
 print(credit_card)   
 
 number = LabelEncoder()
 
-features = ["Debt", "BankCustomer", "YearsEmployed", "Employed", "CreditScore", "Income"]
+#features = ["Debt", "BankCustomer", "YearsEmployed", "Employed", "CreditScore", "Income"]
+features = ["Age","Debt", "BankCustomer", "YearsEmployed", "Employed", "CreditScore", "Income"]
 target = ['Approved']
 
 features_train, features_test, target_train, target_test = train_test_split(credit_card[features],
