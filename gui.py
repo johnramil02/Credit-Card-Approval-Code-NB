@@ -3,6 +3,7 @@ from tkinter import *
 from tkinter import ttk
 from tkinter import messagebox
 import tkinter.font as font
+from PIL import ImageTk, Image
 from ElectiveBayesian import *
 
 # root window
@@ -10,6 +11,9 @@ root = tk.Tk()
 root.geometry('500x400')
 root.resizable(False, False)
 root.title('Credit Card Approval')
+
+photo = PhotoImage(file = "sub-icon.png")
+root.iconphoto(False, photo)
 
 # Label and form input
 label_title         = Label(root ,text = "Credit Card Approval", font=("Courier", 20), fg="#0000FF").place(x = 90,y = 25) #(row = 0,column = 0)
@@ -82,8 +86,8 @@ def is_approve():
     
     # Check if the input is valid
     is_all_numeric = (debt.isnumeric() or isfloat(debt)) and (credit_score.isnumeric() or isfloat(credit_score)) and (income.isnumeric() or isfloat(income)) and (years_employed.isnumeric() or isfloat(years_employed))
-    is_empty = debt == "" or bank == "" or employed == "" or credit_score == "" or income == "" or years_employed == ""
-
+    is_empty = debt == "" or bank == ' ' or employed == ' ' or credit_score == "" or income == "" or years_employed == ""
+    
     if(is_empty):
         messagebox.showwarning("Error", "Empty field must be filled out")
     else:
