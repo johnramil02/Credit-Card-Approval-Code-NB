@@ -65,7 +65,6 @@ print(metrics.confusion_matrix(target_test, pred))
 print(metrics.classification_report(target_test, pred))
 
 
-
 # Function for Naive Bayes model prediction 
 def bayesianPrediction(attributes):
     answer = model.predict(attributes)
