@@ -1,3 +1,4 @@
+from email.utils import decode_rfc2231
 import pandas as pd
 
 from sklearn.naive_bayes import GaussianNB
@@ -35,12 +36,35 @@ accuracy = accuracy_score(target_test, pred)
 
 print(target_test)
 
-print(pred)
+# Put into CSV file
+import csv
+
+
+with open('pred.csv', 'w', newline="") as f:
+    writer = csv.writer(f)
+    
+    for x in pred:
+        if(x == 1):
+            writer.writerow("1")
+        elif(x == 0):
+            writer.writerow("0")
+
+
+with open('target.csv', 'w', newline="") as f:
+    writer = csv.writer(f)
+    
+    for item in target_test['Approved']:
+        if(item == 1):
+            writer.writerow("1")
+        elif(item == 0):
+            writer.writerow("0")
 
 print("Normal Accuracy",accuracy)
 print("\nModel Accuracy = ",accuracy*100,"%") 
 print(metrics.confusion_matrix(target_test, pred))
 print(metrics.classification_report(target_test, pred))
+
+
 
 # Function for Naive Bayes model prediction 
 def bayesianPrediction(attributes):
