@@ -62,9 +62,6 @@ with open('target.csv', 'w', newline="") as f:
         elif(item == 0):
             writer.writerow("0")
 
-
-
-
 print("Normal Accuracy",accuracy)
 print("\nModel Accuracy = ",accuracy*100,"%") 
 print(metrics.confusion_matrix(target_test, pred))
