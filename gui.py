@@ -12,7 +12,7 @@ root.geometry('500x400')
 root.resizable(False, False)
 root.title('Credit Card Approval')
 
-photo = PhotoImage(file = "sub-icon.png")
+photo = PhotoImage(file = "icon.png")
 root.iconphoto(False, photo)
 
 # Label and form input
