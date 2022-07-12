@@ -23,7 +23,6 @@ label_employed      = Label(root ,text = "Employed?", font=('Helvetica', 9, 'bol
 label_credit_score  = Label(root ,text = "Credit Score", font=('Helvetica', 9, 'bold')).place(x = 40,y = 200)
 label_income        = Label(root ,text = "Monthly Income", font=('Helvetica', 9, 'bold')).place(x = 40,y = 230)
 label_years         = Label(root ,text = "Years of Employment :", font=('Helvetica', 9, 'bold')).place(x = 40,y = 260)
-#label_result        = Label(root ,text = "Result").place(x = 150,y = 350)
 
 
 # Text Variable for Entry Field

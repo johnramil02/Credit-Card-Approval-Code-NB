@@ -12,7 +12,6 @@ print(credit_card)
 
 number = LabelEncoder()
 
-
 features = ["Debt", "BankCustomer", "YearsEmployed", "Employed", "CreditScore", "Income"]
 target = ['Approved']
 
@@ -34,33 +33,9 @@ pred = model.predict(features_test)
 
 accuracy = accuracy_score(target_test, pred)
 
-print(type(target_test))
-
+print(target_test)
 
 print(pred)
-
-# Put into CSV file
-import csv
-
-
-with open('pred.csv', 'w', newline="") as f:
-    writer = csv.writer(f)
-    
-    for x in pred:
-        if(x == 1):
-            writer.writerow("1")
-        elif(x == 0):
-            writer.writerow("0")
-
-
-with open('target.csv', 'w', newline="") as f:
-    writer = csv.writer(f)
-    
-    for item in target_test['Approved']:
-        if(item == 1):
-            writer.writerow("1")
-        elif(item == 0):
-            writer.writerow("0")
 
 print("Normal Accuracy",accuracy)
 print("\nModel Accuracy = ",accuracy*100,"%") 
