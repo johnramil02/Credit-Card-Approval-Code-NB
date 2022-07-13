@@ -11,7 +11,11 @@ credit_card = pd.read_csv("original dataset clean.csv")
 print(credit_card)   
 
 #Store the independent variable to features
-features = ["Debt", "BankCustomer", "YearsEmployed", "Employed", "CreditScore", "Income"]
+features = ["Gender","Age","Debt", "BankCustomer", "YearsEmployed", "Employed", "CreditScore", "Income"]
+
+#features = ["Gender","Debt", "BankCustomer", "YearsEmployed", "Employed", "CreditScore", "Income"]
+
+#features = ["Age","Debt", "BankCustomer", "YearsEmployed", "Employed", "CreditScore", "Income"]
 
 
 #Store the dependent variable to target
