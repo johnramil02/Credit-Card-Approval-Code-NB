@@ -1,26 +1,45 @@
-from email.utils import decode_rfc2231
+#import the necessary libraries
 import pandas as pd
-
 from sklearn.naive_bayes import GaussianNB
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, classification_report
-from sklearn.metrics import accuracy_score, classification_report
 from sklearn import metrics
 
+<<<<<<< HEAD
 #credit_card = pd.read_csv("dataset with Age.csv")
 credit_card = pd.read_csv("original dataset clean.csv")
+=======
+<<<<<<< HEAD
+#read csv
+credit_card = pd.read_csv("original dataset clean.csv")
+print(credit_card)   
+
+#Store the independent variable to features
+features = ["Debt", "BankCustomer", "YearsEmployed", "Employed", "CreditScore", "Income"]
+#Store the dependent variable to target
+=======
+credit_card = pd.read_csv("dataset with Age.csv")
+#credit_card = pd.read_csv("complete dataset.csv")
+>>>>>>> a182e111471ef946d9e755393e06949f84387e0a
 
 print(credit_card)   
 
 number = LabelEncoder()
 
+<<<<<<< HEAD
 features = ["Debt", "BankCustomer", "YearsEmployed", "Employed", "CreditScore", "Income"]
 
 # data features
 #features = ["Age","Debt", "BankCustomer", "YearsEmployed", "Employed", "CreditScore", "Income"]
+=======
+#features = ["Debt", "BankCustomer", "YearsEmployed", "Employed", "CreditScore", "Income"]
+features = ["Age","Debt", "BankCustomer", "YearsEmployed", "Employed", "CreditScore", "Income"]
+>>>>>>> 77389958c3c50fb7b173ffd62bc78953f34359d2
+>>>>>>> a182e111471ef946d9e755393e06949f84387e0a
 target = ['Approved']
 
+#Splits the training and testing dataset with random = 20 and test size 30%
 features_train, features_test, target_train, target_test = train_test_split(credit_card[features],
 credit_card[target], test_size = 0.30,
    random_state = 20)
@@ -31,13 +50,19 @@ print('\tTesting Features\n ',features_test)
 print('\tTraining Target\n ',target_train)
 print('\tTesting Target\n ',target_test)
 
+
+#create model
 model = GaussianNB()
 
 model.fit(features_train, target_train)
 
+#prediction
 pred = model.predict(features_test)
+df = pd.DataFrame(pred)
 
+#get accuracy
 accuracy = accuracy_score(target_test, pred)
+
 
 print(target_test)
 
@@ -64,6 +89,7 @@ with open('target.csv', 'w', newline="") as f:
         elif(item == 0):
             writer.writerow("0")
 
+#print accuracy
 print("Normal Accuracy",accuracy)
 print("\nModel Accuracy = ",accuracy*100,"%") 
 print(metrics.confusion_matrix(target_test, pred))
