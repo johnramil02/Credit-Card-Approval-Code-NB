@@ -6,6 +6,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, classification_report
 from sklearn import metrics
 
+<<<<<<< HEAD
 #read csv
 credit_card = pd.read_csv("original dataset clean.csv")
 print(credit_card)   
@@ -13,6 +14,17 @@ print(credit_card)
 #Store the independent variable to features
 features = ["Debt", "BankCustomer", "YearsEmployed", "Employed", "CreditScore", "Income"]
 #Store the dependent variable to target
+=======
+credit_card = pd.read_csv("dataset with Age.csv")
+#credit_card = pd.read_csv("complete dataset.csv")
+
+print(credit_card)   
+
+number = LabelEncoder()
+
+#features = ["Debt", "BankCustomer", "YearsEmployed", "Employed", "CreditScore", "Income"]
+features = ["Age","Debt", "BankCustomer", "YearsEmployed", "Employed", "CreditScore", "Income"]
+>>>>>>> 77389958c3c50fb7b173ffd62bc78953f34359d2
 target = ['Approved']
 
 #Splits the training and testing dataset with random = 20 and test size 30%
