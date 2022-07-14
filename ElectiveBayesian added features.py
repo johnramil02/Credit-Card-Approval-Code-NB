@@ -7,7 +7,7 @@ from sklearn.metrics import accuracy_score, classification_report
 from sklearn import metrics
 
 #read csv
-credit_card = pd.read_csv("original dataset clean.csv")
+credit_card = pd.read_csv("complete dataset.csv")
 print(credit_card)   
 
 #Store the independent variable to features
@@ -23,8 +23,7 @@ target = ['Approved']
 
 #Splits the training and testing dataset with random = 20 and test size 30%
 features_train, features_test, target_train, target_test = train_test_split(credit_card[features],
-credit_card[target], test_size = 0.30,
-   random_state = 20)
+credit_card[target], test_size = 0.30, random_state = 20)
 
 # Displaying the split datasets
 print('\tTraining Features\n ',features_train)  #3 Print all of these

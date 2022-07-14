@@ -12,10 +12,6 @@ print(credit_card)
 
 #Store the independent variable to features
 features = ["Debt", "BankCustomer", "YearsEmployed", "Employed", "CreditScore", "Income"]
-<<<<<<< HEAD
-=======
-
->>>>>>> b644468453e2e3702a25041362d81d9fa0297392
 #Store the dependent variable to target
 target = ['Approved']
 
@@ -43,12 +39,6 @@ pred = model.predict(features_test)
 #get accuracy
 accuracy = accuracy_score(target_test, pred)
 
-<<<<<<< HEAD
-
-print(target_test)
-
-=======
->>>>>>> b644468453e2e3702a25041362d81d9fa0297392
 #print accuracy
 print("Normal Accuracy",accuracy)
 print("\nModel Accuracy = ",accuracy*100,"%") 
