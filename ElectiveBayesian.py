@@ -13,7 +13,6 @@ print(credit_card)
 #Store the independent variable to features
 features = ["Debt", "BankCustomer", "YearsEmployed", "Employed", "CreditScore", "Income"]
 
-
 #Store the dependent variable to target
 target = ['Approved']
 
