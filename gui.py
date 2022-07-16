@@ -15,11 +15,11 @@ root.title('Credit Card Approval')
 # initialize style to customize button
 style = ttk.Style()
 style.theme_use('alt')
-style.configure('TButton', background = 'yellow', foreground = 'black', width = 20, borderwidth=1, focusthickness=3, focuscolor='none')
+style.configure('TButton', background = '#fec657', foreground = 'black', width = 20, borderwidth=1, focusthickness=3, focuscolor='none')
 style.map('TButton', background=[('active','orange')])
 
 # set background image
-bg = PhotoImage(file = "background1.png")
+bg = PhotoImage(file = "background.png")
 
 # Show image using label
 label1 = Label( root, image = bg)
@@ -118,7 +118,7 @@ def is_approve():
         
 # style of button
 s = ttk.Style()
-s.configure('my.TButton', font=('Raleway', 12))
+s.configure('my.TButton',font=('Raleway', 12))
 
 ttk.Button(root,text = "Predict", width="18",command = is_approve, style='my.TButton').place(x = 220,y = 430)
 
