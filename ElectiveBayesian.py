@@ -1,4 +1,5 @@
 #import the necessary libraries
+from pickle import TRUE
 import pandas as pd
 from sklearn.naive_bayes import GaussianNB
 from sklearn.preprocessing import LabelEncoder
@@ -35,15 +36,18 @@ model.fit(features_train, target_train)
 #prediction
 pred = model.predict(features_test)
 
+df = pd.DataFrame(pred, columns = ['Prediction'])
+print(df)
 
 #get accuracy
 accuracy = accuracy_score(target_test, pred)
 
 #print accuracy
-print("Normal Accuracy",accuracy)
-print("\nModel Accuracy = ",accuracy*100,"%") 
-print(metrics.confusion_matrix(target_test, pred))
-print(metrics.classification_report(target_test, pred))
+#print("Normal Accuracy",accuracy)
+#print("\nModel Accuracy = ",accuracy*100,"%") 
+#print(metrics.confusion_matrix(target_test, pred))
+#print(metrics.classification_report(target_test, pred))
+
 
 
 # Function for Naive Bayes model prediction 
