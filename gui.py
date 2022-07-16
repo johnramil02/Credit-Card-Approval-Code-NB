@@ -19,7 +19,7 @@ style.configure('TButton', background = 'yellow', foreground = 'black', width = 
 style.map('TButton', background=[('active','orange')])
 
 # set background image
-bg = PhotoImage(file = "background.png")
+bg = PhotoImage(file = "background.jpg")
 
 # Show image using label
 label1 = Label( root, image = bg)
@@ -58,20 +58,20 @@ input_income        = Entry(root, textvariable = years_employed_var, width="15",
 employed_radio = StringVar()
 employed_radio.set(' ')
 
-employed_radio_1 = Radiobutton(root, text = "Yes",  bg="#588cc4", font=('Raleway', 12, 'bold'), variable = employed_radio,value = 1)
+employed_radio_1 = Radiobutton(root, text = "Yes",  bg="#588cc4", font=('Raleway', 13, 'bold'), variable = employed_radio,value = 1)
 employed_radio_1.place(x = 220, y = 240)
 
-employed_radio_2 = Radiobutton(root, text = "No",  bg="#588cc4", font=('Raleway', 12, 'bold'), variable = employed_radio,value = 0)
+employed_radio_2 = Radiobutton(root, text = "No",  bg="#588cc4", font=('Raleway', 13, 'bold'), variable = employed_radio,value = 0)
 employed_radio_2.place(x = 300, y = 240)
 
 # Radio Button for Bank Customer
 bank_radio = StringVar()
 bank_radio.set(' ')
 
-bank_radio_1 = Radiobutton(root, text = "Yes",  bg="#588cc4", font=('Raleway', 12, 'bold'), variable = bank_radio,value = 1)
+bank_radio_1 = Radiobutton(root, text = "Yes",  bg="#588cc4", font=('Raleway', 13, 'bold'), variable = bank_radio,value = 1)
 bank_radio_1.place(x = 220, y = 195)
 
-bank_radio_2 = Radiobutton(root, text = "No",  bg="#588cc4", font=('Raleway', 12, 'bold'), variable = bank_radio,value = 0)
+bank_radio_2 = Radiobutton(root, text = "No",  bg="#588cc4", font=('Raleway', 13, 'bold'), variable = bank_radio,value = 0)
 bank_radio_2.place(x = 300, y = 195) 
 
 # check if the string is float or not
