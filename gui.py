@@ -8,25 +8,37 @@ from ElectiveBayesian import *
 
 # root window
 root = tk.Tk()
-root.geometry('500x400')
+root.geometry('788x445')
 root.resizable(False, False)
 root.title('Credit Card Approval')
 
+# initialize style to customize button
+style = ttk.Style()
+style.theme_use('alt')
+style.configure('TButton', background = 'yellow', foreground = 'black', width = 20, borderwidth=1, focusthickness=3, focuscolor='none')
+style.map('TButton', background=[('active','orange')])
+
+# set background image
+bg = PhotoImage(file = "background.png")
+
+# Show image using label
+label1 = Label( root, image = bg)
+label1.place(x = 0, y = 0, relwidth=1, relheight=1)
+
+# set icon 
 photo = PhotoImage(file = "icon.png")
 root.iconphoto(False, photo)
 
 # Label and form input
-label_title         = Label(root ,text = "Credit Card Approval", font=("Courier", 20), fg="#0000FF").place(x = 90,y = 25) #(row = 0,column = 0)
-label_debt          = Label(root ,text = "Debt", font=('Helvetica', 9, 'bold')).place(x = 40,y = 100) 
-label_bank          = Label(root ,text = "Already a Bank Customer?", font=('Helvetica', 9, 'bold')).place(x = 40,y = 130)
-label_employed      = Label(root ,text = "Employed?", font=('Helvetica', 9, 'bold')).place(x = 40,y = 160)
-label_credit_score  = Label(root ,text = "Credit Score", font=('Helvetica', 9, 'bold')).place(x = 40,y = 200)
-label_income        = Label(root ,text = "Monthly Income", font=('Helvetica', 9, 'bold')).place(x = 40,y = 230)
-label_years         = Label(root ,text = "Years of Employment :", font=('Helvetica', 9, 'bold')).place(x = 40,y = 260)
-
+label_title         = Label(root ,text = "Credit Card Approval",bg="#588cc4", font=("Courier", 24, 'bold'), fg="black").place(x = 210,y = 30) 
+label_debt          = Label(root ,text = "Debt", bg="#588cc4", font=('Helvetica', 14, 'bold')).place(x = 150,y = 100) 
+label_bank          = Label(root ,text = "Already a Bank Customer?", bg="#588cc4", font=('Helvetica', 14, 'bold')).place(x = 150,y = 135)
+label_employed      = Label(root ,text = "Employed?", bg="#588cc4", font=('Helvetica', 14, 'bold')).place(x = 150,y = 170)
+label_credit_score  = Label(root ,text = "Credit Score", bg="#588cc4", font=('Helvetica', 14, 'bold')).place(x = 150,y = 205)
+label_income        = Label(root ,text = "Monthly Income", bg="#588cc4", font=('Helvetica', 14, 'bold')).place(x = 150,y = 240)
+label_years         = Label(root ,text = "Years of Employment :",  bg="#588cc4", font=('Helvetica', 14, 'bold')).place(x = 150,y = 275)
 
 # Text Variable for Entry Field
-
 debt_var            = tk.StringVar()
 bank_var            = tk.StringVar()
 employed_var        = tk.StringVar()
@@ -36,31 +48,31 @@ years_employed_var  = tk.StringVar()
 
 
 # Entry Field
-input_debt          = Entry(root, textvariable = debt_var).place(x = 200,y = 100)
-input_credit_score  = Entry(root, textvariable = credit_score_var).place(x = 200,y = 200)
-input_income        = Entry(root, textvariable = income_var).place(x = 200,y = 230)
-input_income        = Entry(root, textvariable = years_employed_var).place(x = 200,y = 260)
+input_debt          = Entry(root, textvariable = debt_var, font=('Helvetica 14')).place(x = 440,y = 100)
+input_credit_score  = Entry(root, textvariable = credit_score_var, font=('Helvetica 14')).place(x = 440,y = 205)
+input_income        = Entry(root, textvariable = income_var, font=('Helvetica 14')).place(x = 440,y = 240)
+input_income        = Entry(root, textvariable = years_employed_var, font=('Helvetica 14')).place(x = 440,y = 275)
+
 
 # Radio Button for Employed
 employed_radio = StringVar()
 employed_radio.set(' ')
 
-employed_radio_1 = Radiobutton(root, text = "Yes", variable = employed_radio,value = 1)
-employed_radio_1.place(x = 200,y = 160)
+employed_radio_1 = Radiobutton(root, text = "Yes",  bg="#588cc4", font=('Helvetica', 12, 'bold'), variable = employed_radio,value = 1)
+employed_radio_1.place(x = 440, y = 170)
 
-employed_radio_2 = Radiobutton(root, text = "No", variable = employed_radio,value = 0)
-employed_radio_2.place(x = 250,y = 160)
-
+employed_radio_2 = Radiobutton(root, text = "No",  bg="#588cc4", font=('Helvetica', 12, 'bold'), variable = employed_radio,value = 0)
+employed_radio_2.place(x = 520, y = 170)
 
 # Radio Button for Bank Customer
 bank_radio = StringVar()
 bank_radio.set(' ')
 
-bank_radio_1 = Radiobutton(root, text = "Yes", variable = bank_radio,value = 1)
-bank_radio_1.place(x = 200,y = 130)
+bank_radio_1 = Radiobutton(root, text = "Yes",  bg="#588cc4", font=('Helvetica', 11, 'bold'), variable = bank_radio,value = 1)
+bank_radio_1.place(x = 440, y = 135)
 
-bank_radio_2 = Radiobutton(root, text = "No", variable = bank_radio,value = 0)
-bank_radio_2.place(x = 250,y = 130)
+bank_radio_2 = Radiobutton(root, text = "No",  bg="#588cc4", font=('Helvetica', 11, 'bold'), variable = bank_radio,value = 0)
+bank_radio_2.place(x = 520, y = 135) 
 
 # check if the string is float or not
 def isfloat(num):
@@ -108,6 +120,6 @@ def is_approve():
 s = ttk.Style()
 s.configure('my.TButton', font=('Helvetica', 12))
 
-ttk.Button(root,text = "Predict", command = is_approve, style='my.TButton').place(x = 230,y = 300)
+ttk.Button(root,text = "Predict", command = is_approve, style='my.TButton').place(x = 330,y = 330)
 
 root.mainloop()
