@@ -19,7 +19,7 @@ style.configure('TButton', background = 'yellow', foreground = 'black', width = 
 style.map('TButton', background=[('active','orange')])
 
 # set background image
-bg = PhotoImage(file = "background.jpg")
+bg = PhotoImage(file = "background1.png")
 
 # Show image using label
 label1 = Label( root, image = bg)
